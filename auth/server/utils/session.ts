@@ -7,6 +7,7 @@ export type AuthSession = {
   id: string;
   name: string;
   email: string;
+  token: string;
 };
 
 export const useAuthSession = async (event: H3Event) => {

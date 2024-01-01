@@ -20,6 +20,7 @@ const loginForm = ref({
 })
 const registerForm = ref({
   email: 'arash@gmail.com',
+  name: "arash",
   password: 'password',
 })
 const hidden = ref(true)
@@ -87,7 +88,7 @@ const onError = (err: any) => {
         </UForm>
       </template>
       <template #register="{ item }">
-        <UForm :state="registerForm" @submit="authRegister(registerForm.email, registerForm.password).catch(onError)">
+        <UForm :state="registerForm" @submit="authRegister(registerForm.email, registerForm.name, registerForm.password).catch(onError)">
           <UCard>
             <template #header>
               <div class="flex">
@@ -105,6 +106,9 @@ const onError = (err: any) => {
 
             <UFormGroup label="Email" name="email" class="mb-3" required>
               <UInput v-model="registerForm.email" placeholder="user@gmail.com" icon="i-heroicons-envelope" />
+            </UFormGroup>
+            <UFormGroup label="Name" name="name" class="mb-3" required>
+              <UInput v-model="registerForm.name" placeholder="username" icon="i-heroicons-pencil" />
             </UFormGroup>
             <UFormGroup label="Password" name="password" required>
               <UInput
