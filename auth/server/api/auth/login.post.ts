@@ -27,6 +27,7 @@ export default eventHandler(async (event) => {
       name: user.name,
       email: user.email,
       token: xAuthToken,
+      role: user.role
   });
 
   return session;

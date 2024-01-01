@@ -1,5 +1,6 @@
 import type { H3Event, SessionConfig } from "h3";
 import crypto from "uncrypto";
+import type {Role} from "~/auth/server/utils/db";
 
 const sessionConfig: SessionConfig = useRuntimeConfig().auth || {};
 
@@ -8,6 +9,7 @@ export type AuthSession = {
   name: string;
   email: string;
   token: string;
+  role: Role;
 };
 
 export const useAuthSession = async (event: H3Event) => {
